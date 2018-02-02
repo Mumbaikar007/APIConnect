@@ -35,6 +35,14 @@
             tools:layout_editor_absoluteX="29dp"
             tools:layout_editor_absoluteY="199dp" />
 
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="34dp"
+            app:srcCompat="@drawable/index2" />
 
 
     </RelativeLayout>

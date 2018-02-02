@@ -1,5 +1,7 @@
 package com.example.optimus.icartoonist;
 
+import android.app.DownloadManager;
+import android.app.VoiceInteractor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
@@ -14,9 +16,11 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 import java.io.ByteArrayOutputStream;
@@ -25,7 +29,8 @@ import java.io.StringReader;
 public class MainActivity extends AppCompatActivity {
 
 
-    String URL = "https://radiant-mountain-79308.herokuapp.com";
+    //String URL = "https://dry-badlands-50154.herokuapp.com/api/test";
+    String URL = "https://radiant-mountain-79308.herokuapp.com/";
     String result = "";
     String deviceId = "xxxxx" ;
     final String tag = "Your Logcat tag: ";
@@ -33,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button button;
     TextView textView;
+    ImageView imageView;
 
 
     @Override
@@ -64,6 +70,38 @@ public class MainActivity extends AppCompatActivity {
 
         button = (Button) findViewById( R.id.button1 );
         textView = (TextView) findViewById( R.id.textView1 );
+        imageView = (ImageView) findViewById( R.id.imageView1);
+
+        /*
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL,null,
+                        new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+
+                                textView.setText(response.toString());
+
+                            }
+                        },
+
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+
+                            }
+                        }
+
+
+                );
+
+            }
+        });
+        */
+
+
 
         button.setOnClickListener( new View.OnClickListener () {
             @Override
@@ -93,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
                 requestQueue.add(stringRequest);
             }
         });
+
 
         /*
 
